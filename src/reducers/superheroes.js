@@ -20,7 +20,11 @@ const initialState = [
 
 const superheroes = (prevState = initialState, action) => {
   if (action.type === SUPER_HEROES_RECEIVED) {
-    return prevState;
+    console.log(action.response.title);
+    return prevState.map(heroObject => ({
+      ...heroObject,
+      status: "dead"
+    }));
   }
   return prevState;
 };
